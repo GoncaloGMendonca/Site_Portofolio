@@ -70,13 +70,14 @@
                     </a>
 
                     <div class="profile__buttons-small">
-                        <a href="Numero do telegram"  target="_blank" class="button button__small">
+                        <a href="Numero do telegram"  target="_blank" class="button button__small button__gray">
                             <i class="ri-telegram-line"></i>
                         </a>
-                        <a href="Numero do telegram" target="_blank" class class="button button__small">
+                        <a href="Numero do telegram"  target="_blank" class="button button__small button__gray">
                             <i class="ri-telegram-line"></i>
                         </a>
                     </div>
+                    
                 </div>
             </div>
         </header>
@@ -85,13 +86,63 @@
         <main class="main">
             <section class="filters container">
                 <!--=============== FILTERS TABS ===============-->
+                <ul class="filters__content">
+                    <button class="filters__button" data-target="#projects">
+                        Projects
+                    </button>
+                    <button class="filters__button" data-target="#skills">
+                        Skills
+                    </button>
+                </ul>
 
                 <div class="filters__sections">
                     <!--=============== PROJECTS ===============-->
-                     
+                     <div class="projects__content grid" data-cotent id="projects">
+                        <article class="projects__card">
+                            <img src="assets/img/project1.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                    <span class="projects__subtitle">Web</span>
+                                    <h3 class="projects__title">teste_1</h3>
+                                    <a href="#" class="projects__button button button__small">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="projects__card">
+                            <img src="assets/img/project2.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                    <span class="projects__subtitle">Poa</span>
+                                    <h3 class="projects__title">teste_2</h3>
+                                    <a href="#" class="projects__button button button__small">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="projects__card">
+                            <img src="assets/img/project3.jpg" alt="" class="projects__img">
+
+                            <div class="projects__modal">
+                                <div>
+                                    <span class="projects__subtitle">Ore</span>
+                                    <h3 class="projects__title">teste_3</h3>
+                                    <a href="#" class="projects__button button button__small">
+                                        <i class="ri-link"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                     </div>
 
                     <!--=============== SKILLS ===============-->
-                    
+                    <div class="skills__content grid" data-cotent id="skills">
+
+                    </div>
                 </div>
             </section>
         </main>
