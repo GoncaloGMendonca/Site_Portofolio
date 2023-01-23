@@ -102,7 +102,15 @@ img {
 }
 
 /*=============== PROFILE ===============*/
+.profile{
+  position: relative;
+  padding-top: 3.5rem;
+}
 
+.profile__container{
+  row-gap: 2rem;
+
+}
 
 /*=============== BUTTONS ===============*/
 
