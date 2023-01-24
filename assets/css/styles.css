@@ -381,24 +381,32 @@ background: linear-gradient(180deg,
 
 .skills__level{
  font-size: var(--smaller-font-size);
-
-
 }
 
 /* Hide and show projects & skills */
-.filters[data-content]{
+.filters [data-content]{
   display: none;
-
 }
+
 .filters__active[data-content]{
   display: grid;
-
-}
+} 
 
 /* Activate button filter */
+.filter-tab-active{
+  background-color: var(--body-color);
+
+}
 
 
 /*=============== FOOTER ===============*/
+.footer__copy{
+  display: block;
+  margin: 2.5rem 0 2rem;
+  text-align: center;
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+}
 
 
 /*=============== SCROLL BAR ===============*/
