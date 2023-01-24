@@ -375,11 +375,25 @@ background: linear-gradient(180deg,
 
 .skills__name{
   font-size: var(--normal-font-size);
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.skills__level{
+ font-size: var(--smaller-font-size);
+
 
 }
 
 /* Hide and show projects & skills */
+.filters[data-content]{
+  display: none;
 
+}
+.filters__active[data-content]{
+  display: grid;
+
+}
 
 /* Activate button filter */
 
