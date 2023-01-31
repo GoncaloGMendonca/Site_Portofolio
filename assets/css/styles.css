@@ -1,6 +1,11 @@
 /*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
+@font-face {
+  font-family: logofont;
+  src: url(font_logo.woff);
+}
+
 /*=============== VARIABLES CSS ===============*/
 :root {
   /*========== Colors ==========*/
@@ -27,7 +32,8 @@
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: 'Poppins', sans-serif;
-  --h2-font-size: 1.25rem;
+  --logo-font: logofont;
+  --h2-font-size: 2.25rem;
   --h3-font-size: 1rem;
   --normal-font-size: .938rem;
   --small-font-size: .813rem;
@@ -193,7 +199,8 @@ body.dark-theme{
 }
 
 .profile__name{
-  font-size: var(--h2-font-size);
+  font-size: 2rem;
+  font-family: var(--logo-font);
 }
 
 .profile__profession{
