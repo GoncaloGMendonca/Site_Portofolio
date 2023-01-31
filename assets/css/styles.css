@@ -6,6 +6,11 @@
   src: url(font_logo.woff);
 }
 
+@font-face {
+  font-family: bodyfont;
+  src: url(font_body.woff);
+}
+
 /*=============== VARIABLES CSS ===============*/
 :root {
   /*========== Colors ==========*/
@@ -31,7 +36,7 @@
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
-  --body-font: 'Poppins', sans-serif;
+  --body-font: bodyfont;
   --logo-font: logofont;
   --h2-font-size: 2.25rem;
   --h3-font-size: 1rem;
@@ -150,7 +155,7 @@ body.dark-theme{
 
 .grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 2.5rem;
 }
 
 /*=============== PROFILE ===============*/
@@ -344,6 +349,7 @@ background-color: var(--body-color);
   position: relative;
   border-radius: 1rem;
   overflow: hidden;
+  transition: transform .2s; 
 }
 
 .projects__card img{
@@ -387,8 +393,12 @@ background: linear-gradient(180deg,
 
 .projects__card:hover .projects__modal{
   bottom: 0;
+}
 
+.projects__card:hover{
+  transform: scale(120%);
 
+   
 }
 
 
@@ -490,6 +500,11 @@ background-color: hsl(var(--hue), 8%, 66%);
 
   }
 
+  .projects__card:hover{
+    transform: scale(108%);
+  }
+  
+
   .profile__info{
     column-gap: 1.5rem;
   }
@@ -518,6 +533,11 @@ background-color: hsl(var(--hue), 8%, 66%);
     width: 332px;
     margin: 3rem auto;
   }
+
+  .projects__card:hover{
+    transform: scale(115%);
+  }
+ 
 }
 
 
@@ -527,6 +547,9 @@ background-color: hsl(var(--hue), 8%, 66%);
     grid-template-columns: repeat(2, 332px);
   }
 
+  .projects__card:hover{
+    transform: scale(120%);
+  }
 
 .skills__content{
   justify-content: center;
