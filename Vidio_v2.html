@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <script>
+      window.onload = function() {
+        document.querySelectorAll('.videoPreview').forEach(function(vid) {
+          vid.onmouseover = function() {
+            this.play();
+          }
+          vid.onmouseout = function() {
+            this.load(); // stop and show poster
+          }
+        })
+      }
+    </script>
+  </head>
+  <body>
+    <video class="videoPreview" muted width="240" height="180" src="Video.mp4"></video>
+    
+    <video class="videoPreview" muted width="240" height="180" src="https://test-videos.co.uk/vids/jellyfish/mp4/h264/360/Jellyfish_360_10s_1MB.mp4" poster="https://i.ytimg.com/vi/QV5afHQ08TE/hqdefault.jpg"></video>
+  </body>
+</html>
