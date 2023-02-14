@@ -490,6 +490,29 @@ background-color: hsl(var(--hue), 8%, 66%);
     }
   
 
+/*======== MODAL'S===========*/
+
+.modal-content{
+
+  background-color: hsl(var(--hue), 40%, 8%);
+
+}
+
+.modal-body, .card{
+  
+  background-color: hsl(var(--hue), 40%, 8%);
+
+}
+
+.side-text {
+  max-height: 500px; /* Set maximum height */
+  overflow-y: scroll; /* Allow scrolling if contents exceed max-height */
+}
+
+
+
+
+
 
 
 /*=============== BREAKPOINTS ===============*/
