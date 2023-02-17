@@ -509,6 +509,36 @@ background-color: hsl(var(--hue), 8%, 66%);
   overflow-y: scroll; /* Allow scrolling if contents exceed max-height */
 }
 
+.carousel-caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, hsl(250, 66%, 75%), hsla(250, 66%, 75%, 0));
+  color: black;
+  text-align: center;
+  padding: 35px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slide:hover .carousel-caption {
+  opacity: 1;
+}
+
+
+.carousel-item:hover .carousel-caption {
+  opacity: 1;
+}
+
+
+.carousel-caption h3,
+.carousel-caption p {
+  color: #000;
+  font-size: 29px;
+}
+
+
 
 
 

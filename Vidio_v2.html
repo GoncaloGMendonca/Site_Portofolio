@@ -1,21 +1,70 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <script>
-      window.onload = function() {
-        document.querySelectorAll('.videoPreview').forEach(function(vid) {
-          vid.onmouseover = function() {
-            this.play();
-          }
-          vid.onmouseout = function() {
-            this.load(); // stop and show poster
-          }
-        })
+    <meta charset="UTF-8">
+    <title>My Video Preview Page</title>
+    <style>
+      body {
+        background-color: blue;
       }
-    </script>
+      .video-container {
+        position: relative;
+        display: inline-block;
+        margin: 10px;
+      }
+      .video-container:hover .video-preview {
+        opacity: 1;
+      }
+      .video-preview {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .video {
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
-    <video class="videoPreview" muted width="240" height="180" src="Video.mp4"></video>
-    
-    <video class="videoPreview" muted width="240" height="180" src="https://test-videos.co.uk/vids/jellyfish/mp4/h264/360/Jellyfish_360_10s_1MB.mp4" poster="https://i.ytimg.com/vi/QV5afHQ08TE/hqdefault.jpg"></video>
+    <div class="video-container">
+      <video controls data-poster="video-thumbnail-1.jpg" class="video">
+        <source src="video-1.mp4" type="video/mp4" />
+      </video>
+      <div class="video-preview"></div>
+    </div>
+    <div class="video-container">
+      <video controls data-poster="video-thumbnail-2.jpg" class="video">
+        <source src="video-2.mp4" type="video/mp4" />
+      </video>
+      <div class="video-preview"></div>
+    </div>
+    <div class="video-container">
+      <video controls data-poster="video-thumbnail-3.jpg" class="video">
+        <source src="video-3.mp4" type="video/mp4" />
+      </video>
+      <div class="video-preview"></div>
+    </div>
+    <script>
+      const previews = document.querySelectorAll('.video-preview');
+      const videos = document.querySelectorAll('video');
+      for (let i = 0; i < videos.length; i++) {
+        const preview = previews[i];
+        const video = videos[i];
+        const src = video.getAttribute('src');
+        preview.style.backgroundImage = `url(${video.getAttribute('data-poster')})`;
+        preview.addEventListener('mouseover', () => {
+          preview.style.backgroundImage = `url(preview-${i + 1}.gif)`;
+        });
+        preview.addEventListener('mouseout', () => {
+          preview.style.backgroundImage = `url(${video.getAttribute('data-poster')})`;
+        });
+      }
+    </script>
   </body>
 </html>
