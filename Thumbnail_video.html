@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My Video Preview Page</title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.4/plyr.css" />
+    <style>
+      body {
+        background-color: blue;
+      }
+      .video-container {
+        position: relative;
+        display: inline-block;
+      }
+      .video-container:hover .video-preview {
+        opacity: 1;
+      }
+      .video-preview {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .video {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="video-container">
+      <video controls data-poster="video-thumbnail.jpg" data-plyr class="video">
+        <source src="pe.mp4" type="video/mp4" />
+      </video>
+      <div class="video-preview"></div>
+    </div>
+    <script src="https://cdn.plyr.io/3.6.4/plyr.polyfilled.min.js"></script>
+    <script>
+      const player = new Plyr('video');
+
+      const preview = document.querySelector('.video-preview');
+      const video = document.querySelector('video');
+      const src = video.getAttribute('src');
+      preview.style.backgroundImage = `url(${video.getAttribute('data-poster')})`;
+      preview.addEventListener('mouseover', () => {
+        preview.style.backgroundImage = `url(${src})`;
+      });
+      preview.addEventListener('mouseout', () => {
+        preview.style.backgroundImage = `url(${video.getAttribute('data-poster')})`;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <video poster="poster-image.jpg" class="video-preview">
+        <source src="Video.mp4" type="video/mp4">
+      </video>
+      
+      <script>
+      const video = document.querySelector('.video-preview');
+      
+      video.addEventListener('mouseenter', () => {
+        const preview = document.createElement('video');
+        preview.src = 'Video.mp4';
+        preview.play();
+      
+        // position preview element over original video element
+        preview.style.position = 'absolute';
+        preview.style.top = video.offsetTop + 'px';
+        preview.style.left = video.offsetLeft + 'px';
+        preview.style.width = video.offsetWidth + 'px';
+        preview.style.height = video.offsetHeight + 'px';
+      
+        document.body.appendChild(preview);
+      });
+      
+      video.addEventListener('mouseleave', () => {
+        const preview = document.querySelector('video[src="Video.mp4"]');
+        if (preview) {
+          document.body.removeChild(preview);
+        }
+      });
+      </script>
+      
+    
+</body>
+</html>
