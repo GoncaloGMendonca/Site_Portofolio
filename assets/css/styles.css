@@ -543,8 +543,6 @@ background-color: hsl(var(--hue), 8%, 66%);
 
 
 
-
-
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen  and (max-width: 320px){
