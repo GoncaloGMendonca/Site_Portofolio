@@ -358,6 +358,17 @@ width: 100%;
 height: 100%;
 }
 
+#testa{
+  position: absolute;
+  color: #E2AB2C;
+  float: right;
+  font-size: 1.9rem;
+  padding-top: 10px;
+  padding-left: 290px;
+  /* filter: drop-shadow(18px -5px 22px #FFFFFF); */
+
+}
+
 .projects__modal{
 position: absolute;
 width: 100%;
@@ -437,11 +448,23 @@ background: linear-gradient(180deg,
   color: var(--first-color);
 }
 
+#whitecirce{
+  color: white;
+
+}
+
 .skills__name{
   font-size: var(--normal-font-size);
   font-weight: 500;
   line-height: 18px;
 }
+
+#skilltext{
+  font-size: 1.5rem;
+
+}
+
+
 
 .skills__level{
  font-size: var(--smaller-font-size);
