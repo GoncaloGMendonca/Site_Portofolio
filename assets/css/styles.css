@@ -539,6 +539,15 @@ background-color: hsl(var(--hue), 8%, 66%);
 }
 
 
+.carouselimg{
+  width: 100px;
+
+}
+
+.carousel_video{
+  width: 100%;
+ 
+}
 
 
 
