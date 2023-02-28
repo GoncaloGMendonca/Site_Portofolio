@@ -62,9 +62,6 @@ const sr = ScrollReveal({
 
 
 
-
-
-
 	
 
 

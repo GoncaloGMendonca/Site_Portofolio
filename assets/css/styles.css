@@ -415,6 +415,7 @@ background: linear-gradient(180deg,
 
 
 
+
 /*=============== SKILLS ===============*/
 .skills__content{
   row-gap: 3.5rem;
@@ -562,15 +563,20 @@ background-color: hsl(var(--hue), 8%, 66%);
 }
 
 
-.carouselimg{
-  width: 100px;
-
-}
-
-.carousel_video{
+.carousel-item {
+  height: 490px;
   width: 100%;
- 
+  overflow: hidden;
 }
+
+.carousel-item img,
+.carousel-item video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+
+}
+
 
 
 

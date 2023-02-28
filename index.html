@@ -329,19 +329,20 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="imageModalLabel">Titulo</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <div class="row">
                     <div class="col-md-8">
-                      <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+                      <div id="imageCarousel" class="carousel slide " data-bs-ride="carousel">
                         <div class="carousel-indicators">
                           <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                           <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#imageCarousel" data-bs-slide-to="2" aria-label="Slide 2"></button>
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="assets/img/project1.jpg" class="d-block w-100" alt="First slide">
+                                <img src="assets/img/project1.jpg" class="d-block w-100 rounded" alt="First slide">
                                 <div class="carousel-caption">
                                     <h3>First slide title</h3>
                                     <p>First slide description</p>
@@ -353,8 +354,8 @@
                           </div>
 
                           <div class="carousel-item">
-                            <video class="d-block carousel_video" controls>
-                              <source src="path/to/video2.mp4" type="video/mp4">
+                            <video  class="d-block carousel_video rounded"  controls muted loop autoplay >
+                              <source src="pe.mp4" type="video/mp4">
                               Your browser does not support the video tag.
                             </video>
                           </div>
@@ -410,6 +411,7 @@
                 This a personal site 
             </span>
             
+            <button onclick="showMessage()">Click me</button>
 
            
             
@@ -420,5 +422,6 @@
 
         <!--=============== MAIN JS ===============-->
         <script src="assets/js/main.js"></script> 
+        <script src="assets/js/video.js"></script> 
     </body>
 </html>
