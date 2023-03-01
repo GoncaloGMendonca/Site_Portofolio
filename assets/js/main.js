@@ -2,6 +2,23 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 
+function copyToClipboard(textToCopy) {
+    navigator.clipboard.writeText(textToCopy)
+      .then(() => {
+        console.log('Text copied to clipboard: ' + textToCopy);
+        const snackbar = document.getElementById('snackbar');
+        snackbar.classList.add('show');
+        setTimeout(() => {
+          snackbar.classList.remove('show');
+        }, 2500);
+      })
+      .catch((error) => {
+        console.error('Failed to copy text: ', error);
+      });
+}
+  
+
+  
 
 /*=============== FILTERS TABS ===============*/
 const tabs = document.querySelectorAll('[data-target]'),
@@ -65,9 +82,6 @@ const sr = ScrollReveal({
     delay: 400,
 })
 
-
-
-	
 
 
 sr.reveal(`.profile__border`)
