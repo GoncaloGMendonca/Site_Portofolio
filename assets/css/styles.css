@@ -269,6 +269,29 @@ column-gap: 1rem;
 
 }
 
+.tooltip-inner {
+  padding: 0.6rem;
+  color: black;
+  font-size: var(--normal-font-size);
+  background-color: var(--first-color);
+  
+}
+
+#tooltip-container {
+  position: relative;
+  padding-top: 10px; /* adjust as needed */
+}
+
+.tooltip {
+  top: 100;
+  left: 50%;
+  transform: translateX(-50%);
+
+
+}
+
+
+
 
 
 /*=============== BUTTONS ===============*/
@@ -376,8 +399,12 @@ height: 100%;
 bottom: -100%;
 left:0;
 background: linear-gradient(180deg,
-       hsla(var(--hue), 24%, 40%, .3) 0%
-       hsla(var(--hue), 24%, 4%, 1) 95%);
+  hsla(250, 26%, 27%, 0.1) 0%,
+  hsla(250, 26%, 27%, 0.95) 95%
+);
+
+
+
        display: grid;
        align-items: flex-end;
        padding: 1.5rem 1.25rem;

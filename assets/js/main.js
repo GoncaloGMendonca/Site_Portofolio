@@ -1,3 +1,8 @@
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+
+
 /*=============== FILTERS TABS ===============*/
 const tabs = document.querySelectorAll('[data-target]'),
     tabContents = document.querySelectorAll('[data-content]')
