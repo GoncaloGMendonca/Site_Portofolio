@@ -3,15 +3,109 @@
   <head>
     <meta charset="UTF-8">
     <title>My Video Preview Page</title>
-    
+    <style>
+video {
+  width: 100%;
+  height: auto;
+}
+
+/* Hide default controls */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::media-controls {
+  display: none !important;
+}
+
+/* Customize control bar */
+video::-webkit-media-controls-enclosure {
+  background-color: #333;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+video::media-controls-enclosure {
+  background-color: #333;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* Customize play button */
+video::-webkit-media-controls-play-button {
+  background-image: url('path/to/play-button.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  outline: none;
+  margin-right: 10px;
+}
+
+video::media-controls-play-button {
+  background-image: url('path/to/play-button.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  outline: none;
+  margin-right: 10px;
+}
+
+/* Customize progress bar */
+video::-webkit-media-controls-timeline {
+  height: 5px;
+  background-color: #ccc;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+video::media-controls-timeline {
+  height: 5px;
+  background-color: #ccc;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+video::-webkit-media-controls-timeline-progress-bar {
+  height: 100%;
+  background-color: #f00;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+video::media-controls-timeline-progress-bar {
+  height: 100%;
+  background-color: #f00;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+    </style>
+
+
   </head>
   <body>
- 
+
+    <video controls>
+      <source src="pe.mp4" type="video/mp4">
+    </video>
+    
     
   </body>
-  <script>
-
-
-
-  </script>
+  
 </html>
