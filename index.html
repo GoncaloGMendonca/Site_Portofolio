@@ -478,5 +478,16 @@
         <!--=============== MAIN JS ===============-->
         <script src="assets/js/main.js"></script> 
         <script src="assets/js/video.js"></script> 
+
+        <script>
+            // get the hash value from the URL
+            var hash = window.location.hash;
+            
+            // check if the hash is the id of the modal
+            if (hash === '#imageModal') {
+              // show the modal
+              $('#imageModal').modal('show');
+            }
+          </script>
     </body>
 </html>
