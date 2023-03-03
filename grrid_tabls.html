@@ -1,129 +1,60 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-
-.post-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-}
-
-.post {
-  display: block;
-  text-align: center;
-  transition: opacity 0.3s ease-in-out;
-  opacity: 1;
-}
-
-.post.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.post img {
-  width: 100%;
-  height: auto;
-}
-
-.category-buttons {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.category-button {
-  border: none;
-  background-color: white;
-  padding: 10px 20px;
-  margin-right: 10px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.category-button.active {
-  background-color: #ccc;
-}
-
-
-    </style>
-</head>
-<body>
-
-
-    <div class="category-buttons">
-        <button class="category-button active" data-category="all">All</button>
-        <button class="category-button" data-category="nature">Nature</button>
-        <button class="category-button" data-category="animals">Animals</button>
-        <button class="category-button" data-category="food">Food</button>
-      </div>
-      
-      <div class="post-grid">
-        <div class="post nature">
-          <img src="" alt="Nature 1">
-        </div>
-        <div class="post animals">
-          <img src="assets/img/project1.jpg" alt="Animal 1">
-        </div>
-        <div class="post food">
-          <img src="assets/img/project2.jpg" alt="Food 1">
-        </div>
-        <div class="post nature">
-          <img src="assets/img/project3.jpg" alt="Nature 2">
-        </div>
-        <div class="post animals">
-          <img src="assets/img/project4.jpg" alt="Animal 2">
-        </div>
-        <div class="post food">
-          <img src="assets/img/project2.jpg" alt="Food 2">
-        </div>
-        <div class="post nature">
-          <img src="assets/img/project1.jpg" alt="Nature 3">
-        </div>
-        <div class="post animals">
-          <img src="assets/img/project1.jpg" alt="Animal 3">
-        </div>
-        <div class="post food">
-          <img src="assets/img/project2.jpg" alt="Food 3">
-        </div>
-      </div>
-      
-
-      <script>
- 
-
- const categoryButtons = document.querySelectorAll('.category-button');
-const postGrid = document.querySelector('.post-grid');
-
-categoryButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const category = button.dataset.category;
-    categoryButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-    const posts = postGrid.querySelectorAll('.post');
-    if (category === 'all') {
-      posts.forEach(post => post.classList.remove('hidden'));
-    } else {
-      posts.forEach(post => {
-        if (post.classList.contains(category)) {
-          post.classList.remove('hidden');
-        } else {
-          post.classList.add('hidden');
-        }
-      });
-    }
-  });
-});
-
-
-
-
-
-        </script>
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Modal Example</title>
+  </head>
+  <body>
+    <div class="post" id="post1">
+      <h2>Post 1</h2>
+      <button class="open-modal-btn" data-target="#post1-modal">Open Modal</button>
+    </div>
+    <div class="post" id="post2">
+      <h2>Post 2</h2>
+      <button class="open-modal-btn" data-target="#post2-modal">Open Modal</button>
+    </div>
     
-</body>
+    <!-- Modal HTML code -->
+    <div class="modal" id="post1-modal">
+      <h2>Post 1 Modal</h2>
+      <button class="close-modal-btn">Close Modal</button>
+    </div>
+    <div class="modal" id="post2-modal">
+      <h2>Post 2 Modal</h2>
+      <button class="close-modal-btn">Close Modal</button>
+    </div>
+    
+
+    <script>
+      const openModalBtns = document.querySelectorAll('.open-modal-btn');
+      const closeModalBtns = document.querySelectorAll('.close-modal-btn');
+    
+      function updateUrl(postId) {
+        const url = new URL(window.location.href);
+        url.hash = `post${postId}-modal`;
+        window.history.pushState({}, '', url);
+      }
+    
+      function resetUrl() {
+        const url = new URL(window.location.href);
+        url.hash = '';
+        window.history.pushState({}, '', url);
+      }
+    
+      openModalBtns.forEach(btn => {
+        const modalId = btn.dataset.target.substring(1);
+        btn.addEventListener('click', () => {
+          document.getElementById(modalId).style.display = 'block';
+          updateUrl(modalId.substring(4));
+        });
+      });
+    
+      closeModalBtns.forEach(btn => {
+        const modalId = btn.parentNode.id;
+        btn.addEventListener('click', () => {
+          document.getElementById(modalId).style.display = 'none';
+          resetUrl();
+        });
+      });
+    </script>
+  </body>
 </html>
