@@ -629,6 +629,24 @@ background: linear-gradient(180deg,
 }
 
 
+/*---About me---*/
+
+.About__content{
+  row-gap: 3.5rem;
+}
+
+
+
+.About__title{
+  font-size:var(--h3-font-size);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+
+
+
+
 /*=============== FOOTER ===============*/
 .footer__copy{
   display: block;
@@ -715,7 +733,8 @@ background-color: hsl(var(--hue), 8%, 66%);
 }
 
 .carousel-item img,
-.carousel-item video {
+.carousel-item video,
+.carousel-item iframe {
   height: 100%;
   width: 100%;
   object-fit: cover;
