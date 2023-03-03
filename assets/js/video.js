@@ -2,6 +2,7 @@ HTML
 
 <div class="category-buttons">
   <button class="category-button active" data-category="all">All</button>
+  
   <button class="category-button" data-category="food">Food</button>
   <button class="category-button" data-category="travel">Travel</button>
   <button class="category-button" data-category="fashion">Fashion</button>

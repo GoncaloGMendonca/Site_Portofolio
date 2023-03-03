@@ -43,6 +43,32 @@ tabs.forEach(tab =>{
     })
 })
 
+/*-------------------Filter Posts--------------*/
+const categoryButtons = document.querySelectorAll('.category-button');
+const postGrid = document.querySelector('.post-grid');
+const posts = postGrid.querySelectorAll('.post');
+
+categoryButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const category = button.dataset.category;
+    categoryButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    if (category === 'all') {
+      posts.forEach(post => post.style.display = 'block');
+    } else {
+      posts.forEach(post => {
+        if (post.classList.contains(category)) {
+          post.style.display = 'block';
+        } else {
+          post.style.display = 'none';
+        }
+      });
+    }
+  });
+});
+
+
 
 
 

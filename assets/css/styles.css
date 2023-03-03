@@ -451,7 +451,7 @@ background-color: var(--text-color-lighten);
 padding: .375rem;
 border-radius: .75rem;
 display: flex;
-justify-content:  space-between;
+justify-content: space-between;
 column-gap: .5rem;
 }
 
@@ -673,6 +673,25 @@ background-color: hsl(var(--hue), 8%, 66%);
     background-color: hsl(var(--hue), 8%, 44%);
     }
   
+
+
+
+/*---------------Filtos dos Posts---------------------*/
+.category-button.active {
+  background-color: var(--body-color);
+}
+/* 
+.post {
+  
+  transition: opacity 0.3s ease-in-out;
+} */
+
+.post.hidden {
+  opacity: 0;
+}
+
+
+
 
     
 

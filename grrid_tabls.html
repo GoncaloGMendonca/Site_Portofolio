@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.post {
+  display: block;
+  text-align: center;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.post.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.post img {
+  width: 100%;
+  height: auto;
+}
+
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.category-button {
+  border: none;
+  background-color: white;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.category-button.active {
+  background-color: #ccc;
+}
+
+
+    </style>
+</head>
+<body>
+
+
+    <div class="category-buttons">
+        <button class="category-button active" data-category="all">All</button>
+        <button class="category-button" data-category="nature">Nature</button>
+        <button class="category-button" data-category="animals">Animals</button>
+        <button class="category-button" data-category="food">Food</button>
+      </div>
+      
+      <div class="post-grid">
+        <div class="post nature">
+          <img src="" alt="Nature 1">
+        </div>
+        <div class="post animals">
+          <img src="assets/img/project1.jpg" alt="Animal 1">
+        </div>
+        <div class="post food">
+          <img src="assets/img/project2.jpg" alt="Food 1">
+        </div>
+        <div class="post nature">
+          <img src="assets/img/project3.jpg" alt="Nature 2">
+        </div>
+        <div class="post animals">
+          <img src="assets/img/project4.jpg" alt="Animal 2">
+        </div>
+        <div class="post food">
+          <img src="assets/img/project2.jpg" alt="Food 2">
+        </div>
+        <div class="post nature">
+          <img src="assets/img/project1.jpg" alt="Nature 3">
+        </div>
+        <div class="post animals">
+          <img src="assets/img/project1.jpg" alt="Animal 3">
+        </div>
+        <div class="post food">
+          <img src="assets/img/project2.jpg" alt="Food 3">
+        </div>
+      </div>
+      
+
+      <script>
+ 
+
+ const categoryButtons = document.querySelectorAll('.category-button');
+const postGrid = document.querySelector('.post-grid');
+
+categoryButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const category = button.dataset.category;
+    categoryButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    const posts = postGrid.querySelectorAll('.post');
+    if (category === 'all') {
+      posts.forEach(post => post.classList.remove('hidden'));
+    } else {
+      posts.forEach(post => {
+        if (post.classList.contains(category)) {
+          post.classList.remove('hidden');
+        } else {
+          post.classList.add('hidden');
+        }
+      });
+    }
+  });
+});
+
+
+
+
+
+        </script>
+
+    
+</body>
+</html>
