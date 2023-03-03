@@ -498,9 +498,14 @@ z-index: 5;
   padding-top: 5px;
   padding-left: 290px;
   z-index: 3;
-  /* filter: drop-shadow(18px -5px 22px #FFFFFF); */
-
 }
+
+
+
+
+
+
+
 
 .projects__modal{
 position: absolute;
