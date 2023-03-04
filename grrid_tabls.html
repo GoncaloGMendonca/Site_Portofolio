@@ -4,22 +4,19 @@
   <button class="open-modal-btn" data-target="#post1-modal">Open Modal</button>
 </div>
 
-
-<div  id="post1-modal">
+<div class="modal" id="post1-modal">
   <h2>Post 1 Modal</h2>
   <button class="close-modal-btn">Close Modal</button>
 </div>
 
-
-
 <!-- JavaScript code -->
 <script>
-const openModalBtn = document.querySelector('.open-modal-btn');
-const closeModalBtn = document.querySelector('.close-modal-btn');
+const openModalBtns = document.querySelectorAll('.open-modal-btn');
+const closeModalBtns = document.querySelectorAll('.close-modal-btn');
 
-function updateUrl() {
+function updateUrl(postId) {
   const url = new URL(window.location.href);
-  url.hash = 'post1-modal';
+  url.hash = `post${postId}-modal`;
   window.history.pushState({}, '', url);
 }
 
@@ -29,17 +26,36 @@ function resetUrl() {
   window.history.pushState({}, '', url);
 }
 
-if (window.location.hash === '#post1-modal') {
-  document.getElementById('post1-modal').style.display = 'block';
+function isModalHash() {
+  const modalIds = Array.from(document.querySelectorAll('.modal')).map(modal => modal.id);
+  return modalIds.includes(window.location.hash.substring(1));
 }
 
-openModalBtn.addEventListener('click', () => {
-  document.getElementById('post1-modal').style.display = 'block';
-  updateUrl();
+if (isModalHash()) {
+  const postId = window.location.hash.substring(5, window.location.hash.length - 6);
+  document.getElementById(`post${postId}-modal`).style.display = 'block';
+}
+
+openModalBtns.forEach(btn => {
+  const modalId = btn.dataset.target.substring(1);
+  btn.addEventListener('click', () => {
+    document.getElementById(modalId).style.display = 'block';
+    updateUrl(modalId.substring(4));
+  });
 });
 
-closeModalBtn.addEventListener('click', () => {
-  document.getElementById('post1-modal').style.display = 'none';
-  resetUrl();
+closeModalBtns.forEach(btn => {
+  const modalId = btn.parentNode.id;
+  btn.addEventListener('click', () => {
+    document.getElementById(modalId).style.display = 'none';
+    resetUrl();
+  });
+});
+
+window.addEventListener('load', () => {
+  if (isModalHash()) {
+    const postId = window.location.hash.substring(5, window.location.hash.length - 6);
+    document.getElementById(`post${postId}-modal`).style.display = 'block';
+  }
 });
 </script>
