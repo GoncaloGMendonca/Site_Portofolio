@@ -70,7 +70,7 @@ categoryButtons.forEach(button => {
 
 
 /*--------------Links--------- */
-
+/* 
 const openModalBtn = document.querySelector('.open-modal-btn');
 const closeModalBtn = document.querySelector('.close-modal-btn');
 
@@ -100,19 +100,7 @@ closeModalBtn.addEventListener('click', () => {
   resetUrl();
 });
 
-
-// Check if URL contains modal ID and open modal
-function checkUrlForModal() {
-  const modalId = window.location.hash.substring(1);
-  const modal = document.getElementById(modalId);
-  if (modal) {
-    modal.style.display = 'block';
-  }
-}
-
-// Call the function when the page loads
-window.addEventListener('load', checkUrlForModal);
-
+ */
 
 
 
