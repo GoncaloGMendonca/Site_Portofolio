@@ -69,6 +69,37 @@ categoryButtons.forEach(button => {
 });
 
 
+/*--------------Links--------- */
+
+const openModalBtn = document.querySelector('.open-modal-btn');
+const closeModalBtn = document.querySelector('.close-modal-btn');
+
+function updateUrl() {
+  const url = new URL(window.location.href);
+  url.hash = 'post1-modal';
+  window.history.pushState({}, '', url);
+}
+
+function resetUrl() {
+  const url = new URL(window.location.href);
+  url.hash = '';
+  window.history.pushState({}, '', url);
+}
+
+if (window.location.hash === '#post1-modal') {
+  document.getElementById('post1-modal').style.display = 'block';
+}
+
+openModalBtn.addEventListener('click', () => {
+  document.getElementById('post1-modal').style.display = 'block';
+  updateUrl();
+});
+
+closeModalBtn.addEventListener('click', () => {
+  document.getElementById('post1-modal').style.display = 'none';
+  resetUrl();
+});
+
 
 
 

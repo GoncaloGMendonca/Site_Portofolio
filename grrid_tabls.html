@@ -1,60 +1,45 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Modal Example</title>
-  </head>
-  <body>
-    <div class="post" id="post1">
-      <h2>Post 1</h2>
-      <button class="open-modal-btn" data-target="#post1-modal">Open Modal</button>
-    </div>
-    <div class="post" id="post2">
-      <h2>Post 2</h2>
-      <button class="open-modal-btn" data-target="#post2-modal">Open Modal</button>
-    </div>
-    
-    <!-- Modal HTML code -->
-    <div class="modal" id="post1-modal">
-      <h2>Post 1 Modal</h2>
-      <button class="close-modal-btn">Close Modal</button>
-    </div>
-    <div class="modal" id="post2-modal">
-      <h2>Post 2 Modal</h2>
-      <button class="close-modal-btn">Close Modal</button>
-    </div>
-    
+<!-- HTML code with one post -->
+<div class="post" id="post1">
+  <h2>Post 1</h2>
+  <button class="open-modal-btn" data-target="#post1-modal">Open Modal</button>
+</div>
 
-    <script>
-      const openModalBtns = document.querySelectorAll('.open-modal-btn');
-      const closeModalBtns = document.querySelectorAll('.close-modal-btn');
-    
-      function updateUrl(postId) {
-        const url = new URL(window.location.href);
-        url.hash = `post${postId}-modal`;
-        window.history.pushState({}, '', url);
-      }
-    
-      function resetUrl() {
-        const url = new URL(window.location.href);
-        url.hash = '';
-        window.history.pushState({}, '', url);
-      }
-    
-      openModalBtns.forEach(btn => {
-        const modalId = btn.dataset.target.substring(1);
-        btn.addEventListener('click', () => {
-          document.getElementById(modalId).style.display = 'block';
-          updateUrl(modalId.substring(4));
-        });
-      });
-    
-      closeModalBtns.forEach(btn => {
-        const modalId = btn.parentNode.id;
-        btn.addEventListener('click', () => {
-          document.getElementById(modalId).style.display = 'none';
-          resetUrl();
-        });
-      });
-    </script>
-  </body>
-</html>
+
+<div  id="post1-modal">
+  <h2>Post 1 Modal</h2>
+  <button class="close-modal-btn">Close Modal</button>
+</div>
+
+
+
+<!-- JavaScript code -->
+<script>
+const openModalBtn = document.querySelector('.open-modal-btn');
+const closeModalBtn = document.querySelector('.close-modal-btn');
+
+function updateUrl() {
+  const url = new URL(window.location.href);
+  url.hash = 'post1-modal';
+  window.history.pushState({}, '', url);
+}
+
+function resetUrl() {
+  const url = new URL(window.location.href);
+  url.hash = '';
+  window.history.pushState({}, '', url);
+}
+
+if (window.location.hash === '#post1-modal') {
+  document.getElementById('post1-modal').style.display = 'block';
+}
+
+openModalBtn.addEventListener('click', () => {
+  document.getElementById('post1-modal').style.display = 'block';
+  updateUrl();
+});
+
+closeModalBtn.addEventListener('click', () => {
+  document.getElementById('post1-modal').style.display = 'none';
+  resetUrl();
+});
+</script>
