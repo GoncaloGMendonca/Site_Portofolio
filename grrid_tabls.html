@@ -1,61 +1,98 @@
-<!-- HTML code with one post -->
-<div class="post" id="post1">
-  <h2>Post 1</h2>
-  <button class="open-modal-btn" data-target="#post1-modal">Open Modal</button>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Modal Example</title>
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
 
-<div class="modal" id="post1-modal">
-  <h2>Post 1 Modal</h2>
-  <button class="close-modal-btn">Close Modal</button>
-</div>
+    .modal-content {
+      background-color: white;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
 
-<!-- JavaScript code -->
-<script>
-const openModalBtns = document.querySelectorAll('.open-modal-btn');
-const closeModalBtns = document.querySelectorAll('.close-modal-btn');
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
 
-function updateUrl(postId) {
-  const url = new URL(window.location.href);
-  url.hash = `post${postId}-modal`;
-  window.history.pushState({}, '', url);
-}
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="openModal(1)">Open Modal 1</button>
+  <button onclick="openModal(2)">Open Modal 2</button>
 
-function resetUrl() {
-  const url = new URL(window.location.href);
-  url.hash = '';
-  window.history.pushState({}, '', url);
-}
+  <div class="modal" id="modal1">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal(1)">&times;</span>
+      <h2>Modal 1</h2>
+      <p>This is modal 1.</p>
+    </div>
+  </div>
 
-function isModalHash() {
-  const modalIds = Array.from(document.querySelectorAll('.modal')).map(modal => modal.id);
-  return modalIds.includes(window.location.hash.substring(1));
-}
+  <div class="modal" id="modal2">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal(2)">&times;</span>
+      <h2>Modal 2</h2>
+      <p>This is modal 2.</p>
+    </div>
+  </div>
 
-if (isModalHash()) {
-  const postId = window.location.hash.substring(5, window.location.hash.length - 6);
-  document.getElementById(`post${postId}-modal`).style.display = 'block';
-}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function openModal(modalId) {
+      // Update the URL with the modal ID
+      history.pushState(null, null, '#modal' + modalId);
+      // Show the modal
+      $('#modal' + modalId).show();
+    }
 
-openModalBtns.forEach(btn => {
-  const modalId = btn.dataset.target.substring(1);
-  btn.addEventListener('click', () => {
-    document.getElementById(modalId).style.display = 'block';
-    updateUrl(modalId.substring(4));
-  });
-});
+    function closeModal(modalId) {
+      // Hide the modal
+      $('#modal' + modalId).hide();
+      // Update the URL to remove the modal ID
+      history.pushState(null, null, ' ');
+    }
 
-closeModalBtns.forEach(btn => {
-  const modalId = btn.parentNode.id;
-  btn.addEventListener('click', () => {
-    document.getElementById(modalId).style.display = 'none';
-    resetUrl();
-  });
-});
+    // Check the URL when the page loads and show the corresponding modal
+    $(document).ready(function() {
+      var modalId = window.location.hash.substr(1);
+      if (modalId) {
+        $('#modal' + modalId).show();
+      }
+    });
 
-window.addEventListener('load', () => {
-  if (isModalHash()) {
-    const postId = window.location.hash.substring(5, window.location.hash.length - 6);
-    document.getElementById(`post${postId}-modal`).style.display = 'block';
-  }
-});
-</script>
+    // Check the URL when the user navigates back or forward
+    window.onpopstate = function(event) {
+      var modalId = window.location.hash.substr(1);
+      if (modalId) {
+        $('.modal').hide();
+        $('#modal' + modalId).show();
+      } else {
+        $('.modal').hide();
+      }
+    };
+  </script>
+</body>
+</html>
