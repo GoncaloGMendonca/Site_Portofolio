@@ -102,8 +102,8 @@ closeModalBtn.addEventListener('click', () => {
 
  */
 
-/* 
-$(document).ready(function(){
+
+/* $(document).ready(function(){
   // Get the modal ID from the URL
   var modalId = window.location.hash.substr(1);
   if(modalId) {
@@ -111,10 +111,10 @@ $(document).ready(function(){
       $("#" + modalId).modal('show');
   } else {
       // If no modal ID is present in the URL, open the default modal
-      $("#imageModal").modal('show');
+      $("#imageModal1").modal('show');
   }
 });
- */
+  */
 
 
 /*=============== DARK LIGHT THEME ===============*/
