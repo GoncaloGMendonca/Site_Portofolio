@@ -815,6 +815,13 @@ background-color: hsl(var(--hue), 8%, 66%);
   border-radius: 25px;
 }
 
+#imageCarousel9:hover{
+  box-shadow: 0px 0px 10px 0px #a29bfe;
+  transform: scale(1.03);
+  transition: box-shadow 0.2s, transform 0.2s;
+  border-radius: 25px;
+}
+
 
 #subtex:hover {
   box-shadow: 0px 0px 10px 0px #a29bfe;
