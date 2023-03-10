@@ -500,8 +500,43 @@ z-index: 5;
   z-index: 3;
 }
 
+.progmused-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 40px;
+}
 
+.progmused {
+  display: flex;
+  align-items: center;
+  font-family: var(--body-font);
+  font-weight: 300;
+  font-size: 14px;
+  padding: 0.25em 0.5em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(0deg, rgba(77,54,208,1) 0%, rgba(132,116,254,1) 100%);
+  border: none;
+  letter-spacing: 0.05em;
+  border-radius: 50px;
+  width: 140px; /* changed from 120px to 140px */
+  text-align: center;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  flex: 0 0 auto; /* added this to make sure the width of the div is fixed */
+}
 
+.progmused img {
+  width: 30px;
+  height: 24px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.progmused span {
+  margin-left: 6px;
+}
 
 
 
@@ -765,7 +800,10 @@ background-color: hsl(var(--hue), 8%, 66%);
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
 
+#vidsemround {
+  object-fit: contain;
 }
 
 #imageCarousel:hover{
