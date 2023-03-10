@@ -2,6 +2,31 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 
+
+
+
+
+
+function setupCarousels() {
+  // Get all carousels on the page
+  var carousels = document.querySelectorAll('.carousel');
+
+  // Loop through each carousel and set it up
+  for (var i = 0; i < carousels.length; i++) {
+    var carousel = carousels[i];
+
+    // Set up the carousel here, using whatever library or code you prefer
+    // For example, if you're using Bootstrap, you could call the carousel() method:
+    $(carousel).carousel();
+  }
+}
+
+// Call the setupCarousels() function when the page is loaded
+window.onload = function() {
+  setupCarousels();
+};
+
+
 function copyToClipboard(textToCopy) {
     navigator.clipboard.writeText(textToCopy)
       .then(() => {
@@ -67,6 +92,9 @@ categoryButtons.forEach(button => {
     }
   });
 });
+
+
+
 
 
 /*--------------Links--------- */
