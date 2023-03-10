@@ -22,16 +22,17 @@
       Teal: hsl(174, 63%, 62%)
   */
 
+ 
   --hue: 250;
   --sat: 66%;
   --lig: 75%;
   --first-color: hsl(var(--hue), var(--sat), var(--lig));
   --first-color-alt: hsl(var(--hue), var(--sat), 71%); /* -4% */
-  --title-color: hsl(var(--hue), 12%, 15%);
-  --text-color: hsl(var(--hue), 12%, 45%);
+  --title-color: hsl(var(--hue), 12%, 95%);
+  --text-color: hsl(var(--hue), 12%, 75%);
   --text-color-light: hsl(var(--hue), 8%, 75%);
   --text-color-lighten: hsl(var(--hue), 8%, 92%);
-  --body-color: hsl(var(--hue), 100%, 99%);
+  --body-color: hsl(var(--hue), 40%, 8%);
   --container-color: #fff;
 
   /*========== Font and typography ==========*/
@@ -447,7 +448,7 @@ background-color: var(--text-color-light);
 /*=============== FILTERS TABS ===============*/
 .filters__content{
 margin: 2rem 0 2.5rem;
-background-color: var(--text-color-lighten);
+background-color: hsl(var(--hue), 24%, 12%);
 padding: .375rem;
 border-radius: .75rem;
 display: flex;
