@@ -335,19 +335,18 @@ to {bottom: 0; opacity: 0;}
 
 /*--------------------------------------------------------*/ 
 
-#svvg{
-  
-  height: 20rem;
-  position: absolute;
-  float: right;
-  font-size: 50rem;
-  padding-bottom: 50px;
-  padding-left: 260px;
-  padding-top: 0px;
-  transform: scaleX(2) scaleY(1.3);
-  
 
- 
+#melhoricon{
+  position: absolute;
+  top: -30px;
+  right: -68px;
+  height: 40%;
+  width: auto;
+  z-index: 2;
+}
+
+.post.hidden {
+  opacity: 0;
 }
 
 
@@ -436,28 +435,23 @@ background-color: var(--body-color);
 
 
 /*=============== PROJECTS ===============*/
-.projects__card{
+.projects__card {
   position: relative;
   border-radius: 1.2rem;
   overflow: hidden;  
-  transition: transform .2s; 
+  transition: transform .2s;
+  height: 240px; /* Set a fixed height for all cards */
 }
 
-.projects__card img{
-width: 100%;
-height: 100%;
-z-index: 5;
-}
-
-#testa{
-  position: absolute;
-  color: #E2AB2C;
-  float: right;
-  font-size: 1.9rem;
-  padding-top: 5px;
-  padding-left: 290px;
+.projects__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio and fill the container */
   z-index: 3;
 }
+
+
+
 
 .progmused-container {
   display: flex;
@@ -679,9 +673,7 @@ background-color: hsl(var(--hue), 8%, 66%);
   transition: opacity 0.3s ease-in-out;
 } */
 
-.post.hidden {
-  opacity: 0;
-}
+
 
 
 

@@ -97,6 +97,8 @@ categoryButtons.forEach(button => {
 
 
 
+
+
 /*--------------Links--------- */
 /* 
 const openModalBtn = document.querySelector('.open-modal-btn');
