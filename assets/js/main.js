@@ -32,6 +32,41 @@ window.onload = function() {
 };
 
 
+function setupCarousels() {
+  var carousels = document.querySelectorAll('.carousel');
+
+  for (var i = 0; i < carousels.length; i++) {
+    var carousel = carousels[i];
+
+    $(carousel).carousel(); // set up the carousel
+
+    carousel.addEventListener('slide.bs.carousel', function(event) {
+      var currentSlide = event.from; // get the current slide index
+      var slideItems = this.querySelectorAll('.carousel-item'); // get all slide items
+      var slideVideos = slideItems[currentSlide].querySelectorAll('video'); // get all videos in the current slide
+      var slideIFrames = slideItems[currentSlide].querySelectorAll('iframe'); // get all iframes in the current slide
+
+      // Pause all videos in the current slide
+      for (var j = 0; j < slideVideos.length; j++) {
+        if (!slideVideos[j].paused) {
+          slideVideos[j].pause();
+        }
+      }
+
+      // Pause all iframes in the current slide
+      for (var k = 0; k < slideIFrames.length; k++) {
+        var iframeSrc = slideIFrames[k].src;
+        slideIFrames[k].src = iframeSrc; // reload the iframe to pause it
+      }
+    });
+  }
+}
+
+window.onload = function() {
+  setupCarousels();
+};
+
+
 
 function copyToClipboard(textToCopy) {
     navigator.clipboard.writeText(textToCopy)
@@ -100,56 +135,6 @@ categoryButtons.forEach(button => {
 });
 
 
-
-
-
-
-/*--------------Links--------- */
-/* 
-const openModalBtn = document.querySelector('.open-modal-btn');
-const closeModalBtn = document.querySelector('.close-modal-btn');
-
-function updateUrl() {
-  const url = new URL(window.location.href);
-  url.hash = 'post1-modal';
-  window.history.pushState({}, '', url);
-}
-
-function resetUrl() {
-  const url = new URL(window.location.href);
-  url.hash = '';
-  window.history.pushState({}, '', url);
-}
-
-if (window.location.hash === '#post1-modal') {
-  document.getElementById('post1-modal').style.display = 'block';
-}
-
-openModalBtn.addEventListener('click', () => {
-  document.getElementById('post1-modal').style.display = 'block';
-  updateUrl();
-});
-
-closeModalBtn.addEventListener('click', () => {
-  document.getElementById('post1-modal').style.display = 'none';
-  resetUrl();
-});
-
- */
-
-
-/* $(document).ready(function(){
-  // Get the modal ID from the URL
-  var modalId = window.location.hash.substr(1);
-  if(modalId) {
-      // If a modal ID is present in the URL, open that modal
-      $("#" + modalId).modal('show');
-  } else {
-      // If no modal ID is present in the URL, open the default modal
-      $("#imageModal1").modal('show');
-  }
-});
-  */
 
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
