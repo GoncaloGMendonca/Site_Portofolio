@@ -71,7 +71,7 @@ tabs.forEach(tab =>{
 /*-------------------Filter Posts--------------*/
 const categoryButtons = document.querySelectorAll('.category-button');
 const postGrid = document.querySelector('.post-grid');
-const posts = postGrid.querySelectorAll('.post');
+const posts = postGrid.querySelectorAll('.post:not(.projects__modal)');
 
 categoryButtons.forEach(button => {
   button.addEventListener('click', () => {
@@ -92,7 +92,6 @@ categoryButtons.forEach(button => {
     }
   });
 });
-
 
 
 
