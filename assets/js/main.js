@@ -8,23 +8,29 @@ $(document).ready(function(){
 
 
 function setupCarousels() {
-  // Get all carousels on the page
   var carousels = document.querySelectorAll('.carousel');
 
-  // Loop through each carousel and set it up
   for (var i = 0; i < carousels.length; i++) {
     var carousel = carousels[i];
 
-    // Set up the carousel here, using whatever library or code you prefer
-    // For example, if you're using Bootstrap, you could call the carousel() method:
-    $(carousel).carousel();
+    $(carousel).carousel(); // set up the carousel
+
+    // Pause the carousel when the mouse is over it
+    carousel.addEventListener('mouseover', function() {
+      $(this).carousel('pause'); // pause the carousel
+    });
+
+    // Resume the carousel when the mouse leaves it
+    carousel.addEventListener('mouseout', function() {
+      $(this).carousel('cycle'); // resume the carousel
+    });
   }
 }
 
-// Call the setupCarousels() function when the page is loaded
 window.onload = function() {
   setupCarousels();
 };
+
 
 
 function copyToClipboard(textToCopy) {
