@@ -81,49 +81,35 @@ function copyToClipboard(textToCopy) {
         console.error('Failed to copy text: ', error);
       });
 }
-  
-
-// get all modal elements
+  // get all modal elements
 var modalElements = document.querySelectorAll('.modal');
 
 // loop through each modal element
 modalElements.forEach(function(modalElement) {
 
   // get the video element
-  var videoElement = modalElement.querySelector('video');
-
-  // get the iframe element
   var iframeElement = modalElement.querySelector('iframe');
 
   // add event listener for when the modal is shown
   modalElement.addEventListener('shown.bs.modal', function() {
 
-    // play the video
-    if (videoElement) {
-      videoElement.play();
-    }
-
     // set the src attribute of the iframe to start the video
     if (iframeElement) {
       var iframeSrc = iframeElement.getAttribute('src');
-      iframeElement.setAttribute('src', iframeSrc + '?autoplay=1');
+      iframeElement.setAttribute('src', iframeSrc + '?autoplay=0');
     }
   });
 
   // add event listener for when the modal is hidden
   modalElement.addEventListener('hidden.bs.modal', function() {
 
-    // pause the video
-    if (videoElement) {
-      videoElement.pause();
-    }
-
     // set the src attribute of the iframe to stop the video
     if (iframeElement) {
       var iframeSrc = iframeElement.getAttribute('src');
-      iframeElement.setAttribute('src', iframeSrc.replace('?autoplay=1', ''));
+      iframeElement.setAttribute('src', iframeSrc.replace('?autoplay=0', ''));
     }
   });
+
 });
 
 
