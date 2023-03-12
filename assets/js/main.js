@@ -181,6 +181,8 @@ categoryButtons.forEach(button => {
 
 
 
+
+
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({
     origin: 'top',
