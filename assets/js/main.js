@@ -5,8 +5,7 @@ $(document).ready(function(){
 
 
 
-
-
+// sistema de pausar os video no modal no hover no rato
 function setupCarousels() {
   var carousels = document.querySelectorAll('.carousel');
 
@@ -31,7 +30,7 @@ window.onload = function() {
   setupCarousels();
 };
 
-
+// sistema de pausar os video no modal no slide over
 function setupCarousels() {
   var carousels = document.querySelectorAll('.carousel');
 
@@ -83,6 +82,51 @@ function copyToClipboard(textToCopy) {
       });
 }
   
+
+// get all modal elements
+var modalElements = document.querySelectorAll('.modal');
+
+// loop through each modal element
+modalElements.forEach(function(modalElement) {
+
+  // get the video element
+  var videoElement = modalElement.querySelector('video');
+
+  // get the iframe element
+  var iframeElement = modalElement.querySelector('iframe');
+
+  // add event listener for when the modal is shown
+  modalElement.addEventListener('shown.bs.modal', function() {
+
+    // play the video
+    if (videoElement) {
+      videoElement.play();
+    }
+
+    // set the src attribute of the iframe to start the video
+    if (iframeElement) {
+      var iframeSrc = iframeElement.getAttribute('src');
+      iframeElement.setAttribute('src', iframeSrc + '?autoplay=1');
+    }
+  });
+
+  // add event listener for when the modal is hidden
+  modalElement.addEventListener('hidden.bs.modal', function() {
+
+    // pause the video
+    if (videoElement) {
+      videoElement.pause();
+    }
+
+    // set the src attribute of the iframe to stop the video
+    if (iframeElement) {
+      var iframeSrc = iframeElement.getAttribute('src');
+      iframeElement.setAttribute('src', iframeSrc.replace('?autoplay=1', ''));
+    }
+  });
+});
+
+
 
   
 
