@@ -1,4 +1,87 @@
+<!DOCTYPE html>
 <html>
+<head>
+  <style>
+    /* Styles for the main card, sub-card, and button */
+    .container {
+      position: relative;
+      display: inline-block;
+    }
 
+    .main-card, .sub-card {
+      position: relative;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      transition: width 0.3s ease, height 0.3s ease; /* Add transition for width and height changes */
+    }
 
+    .sub-card {
+      margin-top: 10px; /* Add some space between the main and sub-cards */
+      opacity: 0; /* Start with 0 opacity to make the sub-card invisible */
+      pointer-events: none; /* Disable mouse events when the sub-card is hidden */
+    }
+
+    .sub-card h2 {
+      margin: 0; /* Remove margin to prevent spacing issues */
+    }
+
+    /* Class to show the sub-card */
+    .visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main-card" id="main-card">
+      <p>This is the main card content.</p>
+      <button id="dropdown-button">Click me!</button>
+    </div>
+    <div class="sub-card hidden" id="dropdown-card">
+      <p>This is the sub-card content.</p>
+    </div>
+  </div>
+
+  <script>
+    // Get the button and card elements
+    const button = document.getElementById('dropdown-button');
+    const mainCard = document.getElementById('main-card');
+    const subCard = document.getElementById('dropdown-card');
+
+    // Save the original main card content and height
+    const originalMainCardContent = mainCard.innerHTML;
+    const originalMainCardHeight = mainCard.clientHeight;
+
+    // Add a click event listener to the button
+    button.addEventListener('click', function() {
+      // Toggle the visibility of the sub-card when the button is clicked
+      if (subCard.classList.contains('hidden')) {
+        subCard.classList.remove('hidden');
+        subCard.classList.add('visible');
+
+        // Set the main card content as the title of the sub-card
+        subCard.innerHTML = `<h2>${originalMainCardContent}</h2>`;
+
+        // Set the width of the main card to match the width of the sub-card
+        mainCard.style.width = subCard.offsetWidth + 'px';
+
+        // Set the height of the main card to match the height of the title
+        mainCard.style.height = subCard.querySelector('h2').offsetHeight + 'px';
+      } else {
+        subCard.classList.remove('visible');
+        subCard.classList.add('hidden');
+
+        // Reset the main card content, width, and height
+        mainCard.innerHTML = originalMainCardContent;
+        mainCard.style.width = 'auto';
+        mainCard.style.height = originalMainCardHeight + 'px';
+      }
+    });
+  </script>
+</body>
 </html>
