@@ -13,6 +13,9 @@ body {
 .accordion-item {
   border: 1px solid #ddd;
   margin-bottom: 10px;
+  overflow: hidden; /* To hide the overflowing content */
+  transition: max-height 0.3s ease-out; /* Smooth animation */
+  max-height: 50px; /* Initial height of the header */
 }
 
 .accordion-header {
@@ -20,18 +23,20 @@ body {
   padding: 10px;
   cursor: pointer;
   user-select: none;
+  display: flex; /* To align the button and image horizontally */
+  align-items: center; /* To center the button and image vertically */
+}
+
+.accordion-header img {
+  height: 300px; /* Fixed height for the image in the header */
+  margin-right: 10px; /* Optional: Add some space between the image and button */
 }
 
 .accordion-content {
-  display: none;
   padding: 10px;
 }
 
-.accordion-item.active .accordion-content {
-  display: block;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
+.accordion-item.active {
+  max-height: 200px; /* Height of the header when content is expanded */
+  transition: max-height 0.3s ease-in-out; /* Smooth animation for expanding */
 }
